@@ -1,0 +1,132 @@
+{
+  "agent_name": "Periodic Cleaner Agent",
+  "agent_id": "697871441b6268d7b95195f6",
+  "agent_purpose": "custom",
+  "description": "Returns scheduled cleanup execution results including summary statistics, per-rule results with emails processed/deleted, next scheduled run time, and any errors encountered during automated email cleanup",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "cleanup_summary": {
+        "total_emails_processed": "number",
+        "total_emails_deleted": "number",
+        "rules_executed": "number",
+        "execution_time_seconds": "number"
+      },
+      "rules_results": [
+        {
+          "rule_name": "string",
+          "rule_type": "string",
+          "emails_found": "number",
+          "emails_deleted": "number",
+          "criteria_applied": {
+            "label_ids": [
+              "string"
+            ],
+            "days_older_than": "number"
+          },
+          "status": "string"
+        }
+      ],
+      "next_scheduled_run": "string",
+      "errors": [
+        "string"
+      ]
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "error",
+    "result": {
+      "cleanup_summary": {
+        "total_emails_processed": 0,
+        "total_emails_deleted": 0,
+        "rules_executed": 0,
+        "execution_time_seconds": 0
+      },
+      "rules_results": [
+        {
+          "rule_name": "Promotional Emails Older Than 30 Days",
+          "rule_type": "promotional",
+          "emails_found": 0,
+          "emails_deleted": 0,
+          "criteria_applied": {
+            "label_ids": [
+              "CATEGORY_PROMOTIONS"
+            ],
+            "days_older_than": 30
+          },
+          "status": "failed"
+        },
+        {
+          "rule_name": "Old Emails (Any Category) Older Than 30 Days",
+          "rule_type": "age",
+          "emails_found": 0,
+          "emails_deleted": 0,
+          "criteria_applied": {
+            "days_older_than": 30
+          },
+          "status": "failed"
+        }
+      ],
+      "next_scheduled_run": "2024-06-11T12:00:00Z",
+      "errors": [
+        "GMAIL_FETCH_EMAILS tool not available; unable to fetch emails for processing."
+      ]
+    },
+    "metadata": {
+      "agent_name": "Periodic Cleaner Agent",
+      "timestamp": "2024-06-10T12:00:00Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-01-27T08:04:39.611903",
+  "test_message_used": "Provide a sample response",
+  "actual_test_response": {
+    "status": "error",
+    "result": {
+      "cleanup_summary": {
+        "total_emails_processed": 0,
+        "total_emails_deleted": 0,
+        "rules_executed": 0,
+        "execution_time_seconds": 0
+      },
+      "rules_results": [
+        {
+          "rule_name": "Promotional Emails Older Than 30 Days",
+          "rule_type": "promotional",
+          "emails_found": 0,
+          "emails_deleted": 0,
+          "criteria_applied": {
+            "label_ids": [
+              "CATEGORY_PROMOTIONS"
+            ],
+            "days_older_than": 30
+          },
+          "status": "failed"
+        },
+        {
+          "rule_name": "Old Emails (Any Category) Older Than 30 Days",
+          "rule_type": "age",
+          "emails_found": 0,
+          "emails_deleted": 0,
+          "criteria_applied": {
+            "days_older_than": 30
+          },
+          "status": "failed"
+        }
+      ],
+      "next_scheduled_run": "2024-06-11T12:00:00Z",
+      "errors": [
+        "GMAIL_FETCH_EMAILS tool not available; unable to fetch emails for processing."
+      ]
+    },
+    "metadata": {
+      "agent_name": "Periodic Cleaner Agent",
+      "timestamp": "2024-06-10T12:00:00Z"
+    }
+  },
+  "test_passed": true
+}

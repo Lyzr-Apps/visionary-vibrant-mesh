@@ -1,0 +1,29 @@
+{
+  "workflow_name": "Gmail Cleaner Pro",
+  "status": "completed",
+  "agents_created": 2,
+  "agents": {
+    "adhoc_cleaner": {
+      "agent_id": "69787126a75ef8a94cc4f0d1",
+      "name": "Ad-hoc Cleaner Agent",
+      "status": "active",
+      "created_at": "2026-01-27T00:00:00Z"
+    },
+    "periodic_cleaner": {
+      "agent_id": "697871441b6268d7b95195f6",
+      "name": "Periodic Cleaner Agent",
+      "status": "active",
+      "created_at": "2026-01-27T00:00:00Z"
+    }
+  },
+  "workflow_structure": {
+    "pattern": "multi_independent_agents",
+    "nodes": 5,
+    "edges": 4
+  },
+  "response_schemas": [
+    "response_schemas/ad_hoc_cleaner_agent_response.json",
+    "response_schemas/periodic_cleaner_agent_response.json"
+  ],
+  "last_updated": "2026-01-27T00:00:00Z"
+}

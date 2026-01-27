@@ -1,0 +1,31 @@
+{
+  "agent_name": "Ad-hoc Cleaner Agent",
+  "agent_id": "69787126a75ef8a94cc4f0d1",
+  "test_message": "Find all promotional emails from the last 30 days",
+  "expected_purpose": "parser",
+  "timestamp": "2026-01-27T08:04:30.882406",
+  "is_valid_json": true,
+  "validation_errors": [],
+  "actual_response": {
+    "status": "error",
+    "result": {
+      "action": "fetch",
+      "emails_found": 0,
+      "emails_deleted": 0,
+      "criteria_identified": {
+        "sender": null,
+        "date_range": "last 30 days (2024-05-11 to 2024-06-10)",
+        "category": "promotions",
+        "keywords": []
+      },
+      "email_preview": [],
+      "confirmation_required": false,
+      "message": "An error occurred while trying to fetch promotional emails from the last 30 days. Please try again later or check system configuration."
+    },
+    "metadata": {
+      "agent_name": "Ad-hoc Cleaner Agent",
+      "timestamp": "2024-06-10T16:38:23Z"
+    }
+  },
+  "raw_response": "{\n  \"status\": \"error\",\n  \"result\": {\n    \"action\": \"fetch\",\n    \"emails_found\": 0,\n    \"emails_deleted\": 0,\n    \"criteria_identified\": {\n      \"sender\": null,\n      \"date_range\": \"last 30 days (2024-05-11 to 2024-06-10)\",\n      \"category\": \"promotions\",\n      \"keywords\": []\n    },\n    \"email_preview\": [],\n    \"confirmation_required\": false,\n    \"message\": \"An error occurred while trying to fetch promotional emails from the last 30 days. Please try again later or check system configuration.\"\n  },\n  \"metadata\": {\n    \"agent_name\": \"Ad-hoc Cleaner Agent\",\n    \"timestamp\": \"2024-06-10T16:38:23Z\"\n  }\n}"
+}

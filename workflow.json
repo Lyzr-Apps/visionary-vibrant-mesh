@@ -1,0 +1,81 @@
+{
+  "workflow_name": "Gmail Cleaner Pro",
+  "workflow_type": "multi_independent_agents",
+  "nodes": [
+    {
+      "id": "user_input",
+      "type": "Input",
+      "label": "User Input",
+      "nodeCategory": "input",
+      "position": {"x": 100, "y": 200}
+    },
+    {
+      "id": "adhoc_cleaner",
+      "type": "Agent",
+      "label": "Ad-hoc Cleaner Agent",
+      "nodeCategory": "agent",
+      "agent_id": "69787126a75ef8a94cc4f0d1",
+      "agent_name": "Ad-hoc Cleaner Agent",
+      "position": {"x": 400, "y": 100}
+    },
+    {
+      "id": "periodic_cleaner",
+      "type": "Agent",
+      "label": "Periodic Cleaner Agent",
+      "nodeCategory": "agent",
+      "agent_id": "697871441b6268d7b95195f6",
+      "agent_name": "Periodic Cleaner Agent",
+      "position": {"x": 400, "y": 300}
+    },
+    {
+      "id": "adhoc_output",
+      "type": "Output",
+      "label": "Ad-hoc Result",
+      "nodeCategory": "end",
+      "position": {"x": 700, "y": 100}
+    },
+    {
+      "id": "periodic_output",
+      "type": "Output",
+      "label": "Periodic Result",
+      "nodeCategory": "end",
+      "position": {"x": 700, "y": 300}
+    }
+  ],
+  "edges": [
+    {"source": "user_input", "target": "adhoc_cleaner"},
+    {"source": "user_input", "target": "periodic_cleaner"},
+    {"source": "adhoc_cleaner", "target": "adhoc_output"},
+    {"source": "periodic_cleaner", "target": "periodic_output"}
+  ],
+  "agents": [
+    {
+      "agent_id": "69787126a75ef8a94cc4f0d1",
+      "name": "Ad-hoc Cleaner Agent",
+      "description": "Processes natural language cleaning requests, interprets user commands to identify email criteria (sender, date range, category), fetches matching emails from Gmail, and executes deletion upon user confirmation",
+      "role": "Gmail Natural Language Email Cleanup Assistant",
+      "provider": "OpenAI",
+      "model": "gpt-4.1",
+      "temperature": 0.3,
+      "top_p": 1,
+      "tools": ["GMAIL_FETCH_EMAILS", "GMAIL_DELETE_EMAIL"],
+      "trigger": "Chat message submission on Chat Interface",
+      "response_schema_file": "response_schemas/ad_hoc_cleaner_agent_response.json"
+    },
+    {
+      "agent_id": "697871441b6268d7b95195f6",
+      "name": "Periodic Cleaner Agent",
+      "description": "Executes scheduled email cleanup based on user-configured rules, automatically identifies and removes promotional emails, old emails, and emails from unsubscribed senders according to defined criteria",
+      "role": "Automated Scheduled Gmail Cleanup Assistant",
+      "provider": "OpenAI",
+      "model": "gpt-4.1",
+      "temperature": 0.2,
+      "top_p": 1,
+      "tools": ["GMAIL_FETCH_EMAILS", "GMAIL_DELETE_EMAIL"],
+      "trigger": "Scheduled: User-configured frequency (daily/weekly)",
+      "response_schema_file": "response_schemas/periodic_cleaner_agent_response.json"
+    }
+  ],
+  "created_at": "2026-01-27T00:00:00Z",
+  "last_updated": "2026-01-27T00:00:00Z"
+}

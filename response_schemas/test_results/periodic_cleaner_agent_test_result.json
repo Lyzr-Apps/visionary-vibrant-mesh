@@ -1,0 +1,54 @@
+{
+  "agent_name": "Periodic Cleaner Agent",
+  "agent_id": "697871441b6268d7b95195f6",
+  "test_message": "{\"rules\": {\"promotional\": true, \"oldEmails\": true, \"ageThreshold\": 30, \"unsubscribed\": false}, \"maxEmailsPerRun\": 100}",
+  "expected_purpose": "analyzer",
+  "timestamp": "2026-01-27T08:04:39.609286",
+  "is_valid_json": true,
+  "validation_errors": [],
+  "actual_response": {
+    "status": "error",
+    "result": {
+      "cleanup_summary": {
+        "total_emails_processed": 0,
+        "total_emails_deleted": 0,
+        "rules_executed": 0,
+        "execution_time_seconds": 0
+      },
+      "rules_results": [
+        {
+          "rule_name": "Promotional Emails Older Than 30 Days",
+          "rule_type": "promotional",
+          "emails_found": 0,
+          "emails_deleted": 0,
+          "criteria_applied": {
+            "label_ids": [
+              "CATEGORY_PROMOTIONS"
+            ],
+            "days_older_than": 30
+          },
+          "status": "failed"
+        },
+        {
+          "rule_name": "Old Emails (Any Category) Older Than 30 Days",
+          "rule_type": "age",
+          "emails_found": 0,
+          "emails_deleted": 0,
+          "criteria_applied": {
+            "days_older_than": 30
+          },
+          "status": "failed"
+        }
+      ],
+      "next_scheduled_run": "2024-06-11T12:00:00Z",
+      "errors": [
+        "GMAIL_FETCH_EMAILS tool not available; unable to fetch emails for processing."
+      ]
+    },
+    "metadata": {
+      "agent_name": "Periodic Cleaner Agent",
+      "timestamp": "2024-06-10T12:00:00Z"
+    }
+  },
+  "raw_response": "{\n  \"status\": \"error\",\n  \"result\": {\n    \"cleanup_summary\": {\n      \"total_emails_processed\": 0,\n      \"total_emails_deleted\": 0,\n      \"rules_executed\": 0,\n      \"execution_time_seconds\": 0\n    },\n    \"rules_results\": [\n      {\n        \"rule_name\": \"Promotional Emails Older Than 30 Days\",\n        \"rule_type\": \"promotional\",\n        \"emails_found\": 0,\n        \"emails_deleted\": 0,\n        \"criteria_applied\": {\n          \"label_ids\": [\"CATEGORY_PROMOTIONS\"],\n          \"days_older_than\": 30\n        },\n        \"status\": \"failed\"\n      },\n      {\n        \"rule_name\": \"Old Emails (Any Category) Older Than 30 Days\",\n        \"rule_type\": \"age\",\n        \"emails_found\": 0,\n        \"emails_deleted\": 0,\n        \"criteria_applied\": {\n          \"days_older_than\": 30\n        },\n        \"status\": \"failed\"\n      }\n    ],\n    \"next_scheduled_run\": \"2024-06-11T12:00:00Z\",\n    \"errors\": [\n      \"GMAIL_FETCH_EMAILS tool not available; unable to fetch emails for processing.\"\n    ]\n  },\n  \"metadata\": {\n    \"agent_name\": \"Periodic Cleaner Agent\",\n    \"timestamp\": \"2024-06-10T12:00:00Z\"\n  }\n}"
+}
