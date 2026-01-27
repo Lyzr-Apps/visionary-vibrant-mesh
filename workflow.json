@@ -3,11 +3,18 @@
   "workflow_type": "multi_independent_agents",
   "nodes": [
     {
-      "id": "user_input",
+      "id": "chat_input",
       "type": "Input",
-      "label": "User Input",
+      "label": "Chat Input",
       "nodeCategory": "input",
-      "position": {"x": 100, "y": 200}
+      "position": {"x": 100, "y": 100}
+    },
+    {
+      "id": "scheduled_input",
+      "type": "Input",
+      "label": "Scheduled Input",
+      "nodeCategory": "input",
+      "position": {"x": 100, "y": 300}
     },
     {
       "id": "adhoc_cleaner",
@@ -43,8 +50,8 @@
     }
   ],
   "edges": [
-    {"source": "user_input", "target": "adhoc_cleaner"},
-    {"source": "user_input", "target": "periodic_cleaner"},
+    {"source": "chat_input", "target": "adhoc_cleaner"},
+    {"source": "scheduled_input", "target": "periodic_cleaner"},
     {"source": "adhoc_cleaner", "target": "adhoc_output"},
     {"source": "periodic_cleaner", "target": "periodic_output"}
   ],
