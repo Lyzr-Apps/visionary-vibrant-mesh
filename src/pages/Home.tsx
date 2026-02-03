@@ -29,7 +29,7 @@ import { callAIAgent } from '@/utils/aiAgent'
 import type { NormalizedAgentResponse } from '@/utils/aiAgent'
 
 // Agent IDs from workflow.json
-const DYNAMIC_AGENT_ID = "69787126a75ef8a94cc4f0d1"
+const DYNAMO_AGENT_ID = "69787126a75ef8a94cc4f0d1"
 const PERIODIC_AGENT_ID = "697871441b6268d7b95195f6"
 
 // TypeScript interfaces from actual test responses
@@ -49,7 +49,7 @@ interface EmailPreview {
   category?: string
 }
 
-interface DynamicCleanerResponse {
+interface DynamoAgentResponse {
   action: string
   emails_found: number
   emails_deleted: number
@@ -392,10 +392,10 @@ export default function Home() {
     setChatError(null)
 
     try {
-      const result = await callAIAgent(chatInput, DYNAMIC_AGENT_ID)
+      const result = await callAIAgent(chatInput, DYNAMO_AGENT_ID)
 
       if (result.success && result.response.status === 'success') {
-        const data = result.response.result as DynamicCleanerResponse
+        const data = result.response.result as DynamoAgentResponse
 
         // Add assistant message
         const assistantMessage: ChatMessage = {
@@ -461,10 +461,10 @@ export default function Home() {
       const emailIds = Array.from(selectedEmails)
       const message = `Delete these specific emails: ${emailIds.join(', ')}`
 
-      const result = await callAIAgent(message, DYNAMIC_AGENT_ID)
+      const result = await callAIAgent(message, DYNAMO_AGENT_ID)
 
       if (result.success && result.response.status === 'success') {
-        const data = result.response.result as DynamicCleanerResponse
+        const data = result.response.result as DynamoAgentResponse
 
         // Add activity log
         addActivityLog(
