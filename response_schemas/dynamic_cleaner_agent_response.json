@@ -1,0 +1,77 @@
+{
+  "agent_name": "Dynamic Cleaner Agent",
+  "agent_id": "69787126a75ef8a94cc4f0d1",
+  "agent_purpose": "custom",
+  "description": "Returns email cleanup status including criteria identified, emails found/deleted, preview of emails, and confirmation requirements for natural language email cleanup requests",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "action": "string",
+      "emails_found": "number",
+      "emails_deleted": "number",
+      "criteria_identified": {
+        "sender": "null",
+        "date_range": "string",
+        "category": "string",
+        "keywords": [
+          "any"
+        ]
+      },
+      "email_preview": [
+        "any"
+      ],
+      "confirmation_required": "boolean",
+      "message": "string"
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "error",
+    "result": {
+      "action": "fetch",
+      "emails_found": 0,
+      "emails_deleted": 0,
+      "criteria_identified": {
+        "sender": null,
+        "date_range": "last 30 days (2024-05-11 to 2024-06-10)",
+        "category": "promotions",
+        "keywords": []
+      },
+      "email_preview": [],
+      "confirmation_required": false,
+      "message": "An error occurred while trying to fetch promotional emails from the last 30 days. Please try again later or check system configuration."
+    },
+    "metadata": {
+      "agent_name": "Dynamic Cleaner Agent",
+      "timestamp": "2024-06-10T16:38:23Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-01-27T08:04:30.883312",
+  "test_message_used": "Provide a sample response",
+  "actual_test_response": {
+    "status": "error",
+    "result": {
+      "action": "fetch",
+      "emails_found": 0,
+      "emails_deleted": 0,
+      "criteria_identified": {
+        "sender": null,
+        "date_range": "last 30 days (2024-05-11 to 2024-06-10)",
+        "category": "promotions",
+        "keywords": []
+      },
+      "email_preview": [],
+      "confirmation_required": false,
+      "message": "An error occurred while trying to fetch promotional emails from the last 30 days. Please try again later or check system configuration."
+    },
+    "metadata": {
+      "agent_name": "Dynamic Cleaner Agent",
+      "timestamp": "2024-06-10T16:38:23Z"
+    }
+  },
+  "test_passed": true
+}
