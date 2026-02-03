@@ -5,7 +5,7 @@
   "agents": {
     "adhoc_cleaner": {
       "agent_id": "69787126a75ef8a94cc4f0d1",
-      "name": "Random Agent",
+      "name": "dynamic-cleaner-bot",
       "status": "active",
       "created_at": "2026-01-27T00:00:00Z"
     },
@@ -22,7 +22,7 @@
     "edges": 4
   },
   "response_schemas": [
-    "response_schemas/random_agent_response.json",
+    "response_schemas/dynamic_cleaner_bot_response.json",
     "response_schemas/periodic_cleaner_agent_response.json"
   ],
   "last_updated": "2026-01-27T00:00:00Z"

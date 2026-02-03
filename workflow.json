@@ -19,10 +19,10 @@
     {
       "id": "adhoc_cleaner",
       "type": "Agent",
-      "label": "Random Agent",
+      "label": "dynamic-cleaner-bot",
       "nodeCategory": "agent",
       "agent_id": "69787126a75ef8a94cc4f0d1",
-      "agent_name": "Random Agent",
+      "agent_name": "dynamic-cleaner-bot",
       "position": {"x": 400, "y": 100}
     },
     {
@@ -58,7 +58,7 @@
   "agents": [
     {
       "agent_id": "69787126a75ef8a94cc4f0d1",
-      "name": "Random Agent",
+      "name": "dynamic-cleaner-bot",
       "description": "Processes natural language cleaning requests, interprets user commands to identify email criteria (sender, date range, category), fetches matching emails from Gmail, and executes deletion upon user confirmation",
       "role": "Gmail Natural Language Email Cleanup Assistant",
       "provider": "OpenAI",
@@ -67,7 +67,7 @@
       "top_p": 1,
       "tools": ["GMAIL_FETCH_EMAILS", "GMAIL_DELETE_EMAIL"],
       "trigger": "Chat message submission on Chat Interface",
-      "response_schema_file": "response_schemas/random_agent_response.json"
+      "response_schema_file": "response_schemas/dynamic_cleaner_bot_response.json"
     },
     {
       "agent_id": "697871441b6268d7b95195f6",
